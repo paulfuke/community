@@ -29,6 +29,13 @@
             <version>2.2.2.RELEASE</version>
         </dependency>
 
+        <!--热部署依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>true</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
