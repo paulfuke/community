@@ -24,7 +24,6 @@ public class GitHubProvider {
         try {
             Response response = okHttpClient.newCall(request).execute();
             String s = response.body().string();
-            System.out.println(s);
             /**
              * 获取的信息格式
              * access_token=e636f1cd48211aa70ba33150d0d6c849415686f4&scope=user&token_type=bearer
