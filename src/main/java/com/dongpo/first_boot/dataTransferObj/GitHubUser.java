@@ -10,4 +10,6 @@ public class GitHubUser {
     private String name;
 //    github的用户名/账号
     private String login;
+
+    private String avatarUrl;
 }

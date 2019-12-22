@@ -7,60 +7,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
     <title>麦子社区</title>
 </head>
 <body>
-<!--导航栏-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">麦子社区</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<div content="top">
+    <div class="top-in">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">麦子社区</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">发现 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">分享</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">文章</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">活动</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav pr-5">
-            <li class="nav-item" th:if="${session.user} == null">
-                <a class="nav-link" href="https://github.com/login/oauth/authorize?client_id=56aa7b1c26515ccfd305&redirect_uri=http://localhost:8080/callback&scope=user&state=1">登录</a>
-            </li>
-            <li class="nav-item" th:if="${session.user} != null">
-                <a class="nav-link" href="/publish">发起</a>
-            </li>
-            <li class="nav-item dropdown" th:if="${session.user} != null">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">发现 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">分享</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">文章</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">活动</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav pr-5">
+                    <li class="nav-item" th:if="${session.user} == null">
+                        <a class="nav-link" href="https://github.com/login/oauth/authorize?client_id=56aa7b1c26515ccfd305&redirect_uri=http://localhost:8080/callback&scope=user&state=1">登录</a>
+                    </li>
+                    <li class="nav-item" th:if="${session.user} != null">
+                        <a class="nav-link" href="/publish">发起</a>
+                    </li>
+                    <li class="nav-item dropdown" th:if="${session.user} != null">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span th:if="${session.user.name} != null">
                         <font th:text="${session.user.name}"></font>
                     </span>
-                    <span th:if="${session.user.name} == null">
+                            <span th:if="${session.user.name} == null">
                         <font>匿名用户</font>
                     </span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">消息中心</a>
-                    <a class="dropdown-item" href="#">个人资料</a>
-                    <a class="dropdown-item" href="#">退出登录</a>
-                </div>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">消息中心</a>
+                            <a class="dropdown-item" href="#">个人资料</a>
+                            <a class="dropdown-item" href="#">退出登录</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="content">
+    <div class="content-in">
+        <!--分类-->
+        <ul class="category clearfix">
+            <li class="cat-current">
+                <a href="javascript:;">全部</a>
+            </li>
+            <li>
+                <a href="javascript:;">Elasticsearch</a>
+            </li>
+            <li>
+                <a href="javascript:;">Logstash</a>
+            </li>
+            <li>
+                <a href="javascript:;">Kibana</a>
+            </li>
+            <li>
+                <a href="javascript:;">Beats</a>
+            </li>
+            <li>
+                <a href="javascript:;">求职招聘</a>
             </li>
         </ul>
+        <!--发布-->
+        <div class="main-in container-fluid">
+            <div class="row">
+                <div class="col-xl-9 col-lg-12 row-left">
+                    <!--            顶部-->
+                    <div class="article-top">
+                        <h2>
+                            <span class="iconfont" style="font-size: 30px;">&#xe747;</span>
+                            发现
+                        </h2>
+                        <hr>
+                    </div>
+                    <!--                    文章部分-->
+                    <div class="article-main">
+                        <div class="media" th:each="question:${questions}" style="margin-top: 10px;" >
+                            <img style="width: 50px;height: 50px;" class="mr-3" th:src="${question.user.avatarUrl}">
+                            <div class="media-body">
+                                <h5 class="mt-0" th:text="${question.title}">
+                                </h5>
+                                <span>发布了置顶文章 • <span th:text="${question.commentCount}"></span> 个评论 • <span th:text="${question.viewCount}"></span> 次浏览 • <span th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd')}"></span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xl-3 col-lg-12 row-right">
+                    <h2>热门话题</h2>
+                </div>
+            </div>
+        </div>
     </div>
-</nav>
+</div>
+
 
 
 <!--引入jquery-->
@@ -69,5 +131,15 @@
 <script src="js/popper.js"></script>
 <!--引入boots4的js-->
 <script src="js/bootstrap.js"></script>
+
+<script>
+    $(function () {
+        //监听分类标签的点击
+        $('.category>li').click(function () {
+            $(this).addClass("cat-current");
+            $(this).siblings().removeClass("cat-current");
+        });
+    });
+</script>
 </body>
 </html>
