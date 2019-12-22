@@ -1,0 +1,17 @@
+body{
+    background-color: #efefef;
+}
+.main{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.main>.main-left{
+    background-color: blue;
+    height: 500px;
+
+}
+.main>.main-right{
+    background-color: yellow;
+    height: 500px;
+}

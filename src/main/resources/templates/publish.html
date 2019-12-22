@@ -7,7 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/publish.css">
     <title>麦子社区</title>
+    <style>
+        .row-left{
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .row-left,.row-right{
+            background-color: #fff;
+        }
+        .row{
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        form .saveBtn{
+            padding: 10px 10px 10px 0;
+            box-sizing: border-box;
+        }
+        .saveBtn>button{
+            float: right;
+        }
+    </style>
 </head>
 <body>
 <!--导航栏-->
@@ -41,9 +62,10 @@
                 <a class="nav-link" href="https://github.com/login/oauth/authorize?client_id=56aa7b1c26515ccfd305&redirect_uri=http://localhost:8080/callback&scope=user&state=1">登录</a>
             </li>
             <li class="nav-item" th:if="${session.user} != null">
-                <a class="nav-link" href="/publish">发起</a>
+                <a class="nav-link" href="/">主页</a>
             </li>
             <li class="nav-item dropdown" th:if="${session.user} != null">
+
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span th:if="${session.user.name} != null">
                         <font th:text="${session.user.name}"></font>
@@ -62,6 +84,46 @@
     </div>
 </nav>
 
+<!--发布-->
+<!--发布-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9 col-lg-12 row-left">
+            <div>
+                <h2>发起</h2>
+                <hr>
+            </div>
+            <form action="/publish" method="post">
+                <div class="clearfix">
+                    <p style="margin-bottom: 10px;">问题标题(简单扼要):</p>
+                    <div style="width: 70%;float: left;margin-bottom: 10px;">
+                        <input type="text" th:value="${title}" class="form-control" name="title">
+                    </div>
+                    <div style="width: 30%;float: right;">
+                    </div>
+                </div>
+                <div>
+                    <p>问题补充(必填。请参考右侧)</p>
+                    <textarea style="width: 100%;height: 200px;" th:text="${description}" name="description"></textarea>
+                </div>
+                <div>
+                    <p>请输入标签，以逗号结束</p>
+                    <input type="text" th:value="${tag}" class="form-control" name="tag">
+                </div>
+                <div class="saveBtn clearfix">
+                    <span style="color: darkred;font-weight: 400;font-size: 16px;" th:text="${error}"></span>
+                    <button class="btn btn-primary">发布</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-xl-3 col-lg-12 row-right">
+            <h2>问题发起指南：</h2>
+            <p>问题标题：请用准确的语言描述您发布的问题思想</p>
+            <p>问题描述：详细补充您的问题内容，并提供一些相关素材以供参与者更多的了解您所要问题的主题思想</p>
+        </div>
+    </div>
+</div>
 
 <!--引入jquery-->
 <script src="js/jquery-3.1.1.js"></script>
